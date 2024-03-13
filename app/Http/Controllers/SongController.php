@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Song;
 use App\Models\Artist;
 use Illuminate\Support\file;
+use Validator;
 
 class SongController extends Controller
 {
@@ -23,21 +24,26 @@ class SongController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $request->validate([
-            'title' => 'required|string|max:255',
-            'artist_id' => 'required|exists:artists,id',
-            // 'song_file' => '', 
+            'title' => 'required', 
+            'artist_id' =>'nullable',
+            'file_path' => 'nullable|mimes:mp3|max:10240',
         ]);
 
-        // dd($request->all());
-        $file = $request->file('song_file'); 
+        $file = $request->file('file_path');
         $fileName = time() . '_' . $file->getClientOriginalName();
-        // $filePath = $file->storeAs('uploads', $fileName);
-        $file->move(public_path('uploads'), $fileName);
+        $file->move('uploads/audios/', $fileName);
 
-        return redirect()->back()->with('success', 'Song uploaded successfully.');
+        $song = new Song();
+        $song->title = $request->input('title');
+        $song->artist_id = $request->input('artist_id'); // Assigning artist_id instead of artist
+        $song->file_path = 'uploads/audios/' . $fileName;
+        $song->save(); // Save the song data to the database
+
+        return redirect()->route('songs.index')->with('success', 'File uploaded successfully.');
     }
+
+
 
     public function edit(Song $song)
     {

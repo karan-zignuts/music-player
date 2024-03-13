@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ArtistController;
-
+use App\Http\Controllers\AudioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +18,11 @@ use App\Http\Controllers\ArtistController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+// Route::get('/', [PlaylistController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -45,19 +47,33 @@ Route::middleware('auth')->group(function () {
     Route::get('/artists', [ArtistController::class, 'index'])->name('artists.index');
     Route::get('/artists/create', [ArtistController::class, 'create'])->name('artists.create');    
     Route::post('/artists', [ArtistController::class, 'store'])->name('artists.store');    
+    Route::get('/artists/edit/{artist}', [ArtistController::class, 'edit'])->name('artists.edit');
+    Route::delete('/artists/{artist}', [ArtistController::class, 'destroy'])->name('artists.destroy');    
+    Route::put('/artists/{artist}', [ArtistController::class, 'update' ])->name('artists.update');
+
     
     //songs
     Route::post('/songs', [SongController::class, 'store'])->name('songs.store');    
     Route::get('/songs', [SongController::class, 'index'])->name('songs.index');
     Route::get('/songs/create', [SongController::class, 'create'])->name('songs.create');
+    Route::post('/songs/create', [SongController::class,'create'])->name('songs.create');
+
+
 
 });
 
-Route::get('/upload', [SongController::class, 'upload'])->name('upload');
-Route::post('/upload', [SongController::class, 'uploadPost'])->name('songs.uploadPost');
+Route::get('/playlists', [PlaylistController::class, 'index'])->name('playlists.index');
+
+
+// Route::get('/upload', [SongController::class, 'upload'])->name('upload');
+// Route::post('/upload', [SongController::class, 'uploadPost'])->name('songs.uploadPost');
 
 // Route::get('/songs/create', [SongController::class, 'create'])->name('songs.create');
 // Route::post('/songs/create',[SongController::class,'uploadSong'])->name('songs.uploadSong');
+
+// Route::get('/uploadaudio', [AudioController::class,'upload'])->name('audio.upload');
+// Route::post('/uploadaudio', [AudioController::class,'store'])->name('upload.store');
+
 
 require __DIR__.'/auth.php';
 

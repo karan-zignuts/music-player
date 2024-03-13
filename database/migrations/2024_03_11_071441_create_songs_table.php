@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('songs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('artist');
-            $table->string('file_path');
+            $table->string('file_path')->nullable();
             $table->unsignedBigInteger('artist_id')->unsigned()->nullable();
-            $table->foreign('artist_id')->references('id')->on('artists');
+            $table->foreign('artist_id')->references('id')->on('artists')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
             $table->string('created_by')->nullable();
             $table->string( 'updated_by' )->nullable();
-        });
+            });
+         
     }
 
     /**

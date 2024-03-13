@@ -11,14 +11,13 @@
                             <h5 class="card-title"><?php echo e($song->title); ?></h5>
                             <p class="card-text">Artist: <?php echo e($song->artist->name); ?></p>
                             <audio controls>
-                                
-                                    <source src="<?php echo e(asset('storage/' . $song->file_path)); ?>" type="audio/mp3">
-
+                                <source src="<?php echo e(asset($song->file_path)); ?>" type="audio/mp3">
                             </audio>
                         </div>
                     </div>
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
         </div>
     </div>
 <?php $__env->stopSection(); ?>

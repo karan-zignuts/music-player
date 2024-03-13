@@ -11,16 +11,24 @@ class PlaylistController extends Controller
 {
     public function index()
     {
-        $playlists = Auth::user()->playlists()->withCount('songs')->orderBy('created_at', 'desc')->paginate(6);
-        return view('playlists.index', compact('playlists'));
+        if (Auth::check()) {
+            // Get the playlists for the authenticated user
+            $playlists = Auth::user()->playlists()->withCount('songs')->orderBy('created_at', 'desc')->paginate(6);
+
+            // Return the playlists view with the playlists data
+            return view('playlists.index', compact('playlists'));
+        } else {
+            // If the user is not authenticated, redirect them to the login page
+            return redirect()->route('login');
+        }
     }
     
     public function create()
     {
         // return view('playlists.create');
 
-        $songs = Song::all(); // Retrieve all songs
-    return view('playlists.create', compact('songs'));
+        $songs = Song::all(); 
+        return view('playlists.create', compact('songs'));
     }
 
     public function store(Request $request)

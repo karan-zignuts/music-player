@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('song_playlist', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('song_id')->unsigned()->nullable();
-            $table->foreign('song_id')->references('id')->on('songs');    
+            $table->foreign('song_id')->references('id')->on('songs')->onDelete('cascade');    
             $table->unsignedBigInteger('playlist_id')->unsigned()->nullable();
             $table->foreign('playlist_id')->references('id')->on('playlists');    
             $table->timestamps();

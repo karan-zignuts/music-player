@@ -19,9 +19,10 @@
             </div>
             <div class="form-group">
                 <label for="song_file">Song File</label>
-                <input type="file" class="form-control-file" id="song_file" name="song_file">
+                <input type="file" class="form-control-file" id="file_path" name="file_path">
             </div>
             <button type="submit" class="btn btn-primary">Add Song</button>
         </form>
+            
     </div>
 @endsection
