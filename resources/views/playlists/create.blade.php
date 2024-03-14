@@ -1,23 +1,9 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-    <div class="container">
-        <h1>Create Playlist</h1>
-        <form action="{{ route('playlists.store') }}" method="POST">
-            @csrf
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Enter playlist title">
-            </div>
-            <button type="submit" class="btn btn-primary">Create Playlist</button>
-        </form>
-    </div>
-@endsection --}}
-
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <a href="{{ route('playlists.index') }}" class="btn btn-sm btn-primary"> <i class="fa-solid fa-arrow-left"></i></a>
+
+    <div class="container mt-4">
         <h1>Create Playlist</h1>
         <form action="{{ route('playlists.store') }}" method="POST">
             @csrf
@@ -25,21 +11,27 @@
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Enter playlist title">
             </div>
-
-            <h2>Select Songs</h2>
+            <br>
+            <h4>Select Songs</h4>
             <div class="form-group">
-                @foreach($songs as $song)
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="selected_songs[]" value="{{ $song->id }}">
-                        <label class="form-check-label" for="selected_songs_{{ $song->id }}">
-                            {{ $song->title }} - {{ $song->artist->name }}
-                        </label>
-                    </div>
-                @endforeach
+                <div class="row">
+                    @foreach ($songs as $song)
+                        <div class="col-lg-4 mb-3">
+                            <div class="custom-card">
+                                <div class="custom-card-body">
+                                    <input class="form-check-input" type="checkbox" name="selected_songs[]"
+                                        value="{{ $song->id }}" id="song_{{ $song->id }}">
+                                    <label class="form-check-label" for="song_{{ $song->id }}">
+                                        <h5 class="custom-card-title">{{ $song->title }}</h5>
+                                        <p class="custom-card-text mb-0">Artist: {{ $song->artist->name }}</p>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
-
             <button type="submit" class="btn btn-primary">Create Playlist</button>
         </form>
     </div>
 @endsection
-

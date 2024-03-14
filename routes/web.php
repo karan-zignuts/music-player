@@ -19,7 +19,7 @@ use App\Http\Controllers\AudioController;
 */
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('home');
     });
 
 // Route::get('/', [PlaylistController::class, 'index']);

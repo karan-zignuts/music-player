@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->string('category')->nullable();
             $table->timestamps();
             $table->softDeletes();
             $table->string('created_by')->nullable();

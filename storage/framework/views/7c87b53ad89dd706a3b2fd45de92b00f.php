@@ -16,16 +16,15 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+     <link rel="stylesheet" href="<?php echo e(asset('css/style.css')); ?>">
+
 </head>
 
-<body style="background-color: rgb(153, 158, 158)">
+<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#"><?php echo e(config('app.name', 'Laravel')); ?></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
@@ -47,12 +46,14 @@
                             </form>
                         </li>
                     <?php else: ?>
+                    <div class="d-flex">
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo e(route('login')); ?>">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo e(route('register')); ?>">Register</a>
                         </li>
+                    </div>
                     <?php endif; ?>
                 </ul>
             </div>

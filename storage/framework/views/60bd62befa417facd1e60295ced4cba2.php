@@ -6,18 +6,21 @@
         <div class="row">
             <?php $__currentLoopData = $songs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $song): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-md-4 mb-3">
-                    <div class="card">
+                    <div class="card shadow music-card">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo e($song->title); ?></h5>
                             <p class="card-text">Artist: <?php echo e($song->artist->name); ?></p>
-                            <audio controls>
-                                <source src="<?php echo e(asset($song->file_path)); ?>" type="audio/mp3">
-                            </audio>
+                            <p class="card-text">Category: <?php echo e($song->artist->category); ?></p>
+                            <div class="d-flex align-items-center mb-3 gap-2">
+                                <audio controls class="mr-2">
+                                    <source src="<?php echo e(asset($song->file_path)); ?>" type="audio/mp3">
+                                </audio>
+                                <button class="btn btn-secondary btn-sm"><i class="fas fa-heart"></i> Like</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
         </div>
     </div>
 <?php $__env->stopSection(); ?>

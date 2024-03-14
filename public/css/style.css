@@ -1,0 +1,175 @@
+body{
+    background-color: #E2DCDE
+}
+
+.card.music-card {
+    border: none;
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.772);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 10px;
+}
+
+.card.music-card:hover {
+    transform: scale(1) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card.music-card .card-body {
+    padding: 20px;
+}
+
+.card.music-card .card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card.music-card .card-text {
+    font-size: 16px;
+    color: #6c757d;
+}
+
+.card.music-card audio {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.card.music-card .btn-secondary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.card.music-card .btn-secondary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.artist-card {
+    border: none;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.artist-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.artist-card .card-body {
+    padding: 20px;
+}
+
+.artist-card .card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.artist-card .card-text {
+    font-size: 16px;
+    color: #6c757d;
+}
+
+.artist-card .btn-group .btn {
+    width: 70px;
+}
+.artist-card {
+    border: none;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.artist-card .card-body {
+    padding: 20px;
+}
+
+.artist-card .form-control {
+    border-color: #ced4da;
+}
+
+.artist-card .form-control:focus {
+    border-color: #80bdff;
+    box-shadow: none;
+}
+
+.artist-card .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.artist-card .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.playlist-card {
+    border: none;
+    transition: transform 0.3s ease;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+}
+
+.playlist-card:hover {
+    transform: translateY(-5px);
+}
+
+.playlist-card .card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    height: 200px;
+}
+
+.playlist-card .card-body {
+    padding: 20px;
+}
+
+.playlist-card .card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.playlist-card .card-text {
+    font-size: 16px;
+    color: #4c5660;
+}
+
+.playlist-card .btn {
+    width: 100%;
+}
+
+.custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 214, 102, 0.544);
+    /* Change background color on hover */
+}
+
+.custom-card {
+    transition: all 0.3s ease;
+    border: none;
+    background: rgba(255, 255, 255, 0.862);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+}
+
+.custom-card-body {
+    padding: 20px;
+}
+
+.custom-card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.custom-card-text {
+    font-size: 16px;
+    color: #777;
+}

@@ -70,6 +70,6 @@ class SongController extends Controller
         $song->delete();
         return redirect()->route('songs.index')->with('success', 'Song deleted successfully!');
     }
-  
+ 
 }
 

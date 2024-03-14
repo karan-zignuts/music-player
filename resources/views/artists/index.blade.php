@@ -8,18 +8,17 @@
     <div class="row">
         @foreach ($artists as $artist)
         <div class="col-md-4 mb-3">
-            <div class="card">
+            <div class="card shadow artist-card">
                 <div class="card-body">
                     <h5 class="card-title">{{ $artist->name }}</h5>
-                    <div class="btn-group" role="group" style="row-gap: 2">
-                        <!-- Edit Button -->
-                        <a href="{{ route('artists.edit', $artist) }}" class="btn btn-info btn-sm mr-2">Edit</a>
-                        <!-- Delete Button -->
+                    <p class="card-text"><strong>Category:</strong> {{ $artist->category }}</p>
+                    <div class="btn-group gap-2" role="group">
+                        <a href="{{ route('artists.edit', $artist) }}" class="btn btn-info btn-sm mr-2"><i class="fa-solid fa-pen"></i></a>
                         <form action="{{ route('artists.destroy', $artist) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"
-                                onclick="return confirm('Are you sure you want to delete this artist?')">Delete</button>
+                                onclick="return confirm('Are you sure you want to delete this artist?')"><i class="fa-solid fa-trash-can"></i></button>
                         </form>
                     </div>
                 </div>

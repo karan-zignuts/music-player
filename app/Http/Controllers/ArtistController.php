@@ -22,10 +22,12 @@ class ArtistController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
+            'category' =>'required'
         ]);
 
         $artist = new Artist();
         $artist->name = $request->name;
+        $artist->category = $request->category;
         $artist->save();
 
         return redirect()->route('artists.index')->with('success', 'Artist created successfully!');
